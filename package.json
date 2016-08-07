@@ -1,0 +1,12 @@
+{
+  "name": "Operation-Chronos",
+  "version": "0.0.1",
+  "main": "main.js",
+  "license": "GPLv3",
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {
+    "moment": "^2.14.1"
+  }
+}
