@@ -20,9 +20,9 @@ aside > div.popupMenu {
   visibility: hidden;
   position: absolute;
   padding: 5px;
-  left: 5px;
-  bottom: 4px;
+  left: 1px;
+  bottom: 1px;
   text-align: center;
-  border: solid;
-  background-color: rgba(0, 0, 0, 0.7);
+  /*border: solid;*/
+  background-color: #333;
 }
