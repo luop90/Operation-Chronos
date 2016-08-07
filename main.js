@@ -29,4 +29,9 @@ function createWindow() {
     width: 300,
     height: 300
   });
+
+  currentWindow.loadURL(`file://${__dirname}/html/index.html`);
+  currentWindow.on('closed', () => {
+    currentWindow = null;
+  });
 }
