@@ -20,4 +20,14 @@ window.addEventListener('load', function () {
   console.log('Window loaded');
   menuHooks();
   Chronos.draw();
+
+  setTimeout(function () {
+    Chronos.currentTime = moment();
+    Chronos.draw();
+
+    setInterval(function () {
+      Chronos.currentTime = moment();
+      Chronos.draw();
+    }, 1000);
+  }, 1000 - moment().millisecond());
 });
