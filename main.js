@@ -24,7 +24,7 @@ function createWindow() {
   }
 
   currentWindow = new BrowserWindow({
-    autoHideMenuBar: false,
+    autoHideMenuBar: true,
     title: 'Operation Chronos',
     width: 300,
     height: 300
