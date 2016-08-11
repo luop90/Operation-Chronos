@@ -7,7 +7,7 @@ A simple clock written in Electron
 3. Run the app (`npm start`)
 
 ### Credits
-This progam is based on the Chrome app [Studio Clock](https://github.com/oskar456/studioclock), by [Ondřej Caletka](https://xn--ondej-kcb.caletka.cz/).
+This progam is inspired by the Chrome app [Studio Clock](https://github.com/oskar456/studioclock), by [Ondřej Caletka](https://xn--ondej-kcb.caletka.cz/).
 
 ### License
 Released under the terms of the GPLv3 License
