@@ -117,6 +117,7 @@ var Chronos = {
     // Draw... :D
     Chronos.drawClock();
     Chronos.drawScale();
+    ctx.restore();
   },
 
   /**
