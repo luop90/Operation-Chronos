@@ -117,6 +117,8 @@ var Chronos = {
     // Draw... :D
     Chronos.drawClock();
     Chronos.drawScale();
+
+    // Reset our location / size of brush
     ctx.restore();
   },
 

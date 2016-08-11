@@ -29,5 +29,5 @@ window.addEventListener('load', function () {
       Chronos.currentTime = moment();
       Chronos.draw();
     }, 1000);
-  }, 1000 - moment().millisecond());
+  }, 1000 - moment().millisecond()); // Correction for time offset
 });
