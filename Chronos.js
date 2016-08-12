@@ -180,7 +180,7 @@ var Chronos = {
    */
   _drawMatrix: function (digit) {
     var x, y;
-    for (var i in Chronos.font[digit]) {
+    for (var i = 0; i < Chronos.font[digit].length; i++) {
       x = (i % 5 - 2) * Chronos.grid;
       y = (Math.floor(i/5) - 3) * Chronos.grid;
 
