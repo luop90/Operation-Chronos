@@ -182,7 +182,7 @@ var Chronos = {
     var x, y;
     for (var i in Chronos.font[digit]) {
       x = (i % 5 - 2) * Chronos.grid;
-      y = ((0 ^ i/5) - 3) * Chronos.grid;
+      y = (Math.floor(i/5) - 3) * Chronos.grid;
 
       ctx.beginPath();
       ctx.fillStyle = Chronos.font[digit][i] ? Chronos.ledOnColor : Chronos.ledOffColor;
