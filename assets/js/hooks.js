@@ -13,7 +13,6 @@ function menuHooks() {
       menu.style.visibility = 'hidden';
     }
   };
-
 }
 
 window.addEventListener('load', function () {
