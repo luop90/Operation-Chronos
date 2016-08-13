@@ -91,8 +91,8 @@ var Chronos = {
   currentTime: moment(),
   ledOffColor: '#333',
   ledOnColor: '#039be5',
-  grid: 60,
-  radius: 22,
+  grid: 60, // Size of the 7x5 grid, in pixels
+  radius: 22, // Radius of each individual circle, in pixels
 
   /**
    * Our base draw function, this re-draws the entire canvas
@@ -169,14 +169,25 @@ var Chronos = {
   },
 
   /**
-   *
+   * Draws the outer-scale of the clock
    */
   drawScale: function () {
+    // Draw the 12 inner points
+    var points = [true, true, true, true, true, true, true, true, true, true, true, true];
+    Chronos._drawRadial(13.8 * Chronos.grid, Math.TAU / 12, points);
 
+    // Generate / draw the 60 outer points
+    var ledCircle = [];
+    for (var i = 0; i < 60; i++) {
+      ledCircle[i] = (i <= parseInt(Chronos.currentTime.format('ss'))) ? true : false;
+    }
+
+    Chronos._drawRadial(15 * Chronos.grid, Math.TAU / 60, ledCircle);
   },
 
   /**
    * Draws a 7x5 dot matrix
+   * @param {INT} digit
    */
   _drawMatrix: function (digit) {
     var x, y;
@@ -189,5 +200,25 @@ var Chronos = {
       ctx.arc(x, y, Chronos.radius, 0, Math.TAU);
       ctx.fill();
     }
+  },
+
+  /**
+   * Draws radial led scale.
+   * @param {FLOAT} distance Scale radius
+   * @param {FLOAT} angle Angle between LEDs -- in radians
+   * @param {OBJECT} data An itreable of bool data representing LED status
+   */
+  _drawRadial: function (distance, angle, data) {
+    ctx.save();
+
+    for (var i = 0; i < data.length; i++) {
+      ctx.beginPath();
+      ctx.fillStyle = data[i] ? Chronos.ledOnColor : Chronos.ledOffColor;
+      ctx.arc(0, -distance, Chronos.radius, 0, Math.TAU);
+      ctx.fill();
+      ctx.rotate(angle);
+    }
+
+    ctx.restore();
   }
 };
