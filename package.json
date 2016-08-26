@@ -2,7 +2,7 @@
   "name": "Operation-Chronos",
   "version": "0.0.1",
   "main": "main.js",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git"
   },
