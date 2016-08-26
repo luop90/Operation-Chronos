@@ -1,7 +1,9 @@
 const moment = require('moment');
+const fs = require('fs');
 
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
+var settings = JSON.parse(fs.readFileSync('./userdata.json'));
 
 Math.TAU = 2 * Math.PI;
 
@@ -89,11 +91,28 @@ var Chronos = {
      false, true, true, true, false]
   ],
   currentTime: moment(),
-  ledOffColor: '#333',
-  ledOnColor: '#039be5',
+  ledOffColor: settings.ledOffColor,
+  ledOnColor: settings.ledOnColor,
+  backgroundColor: settings.backgroundColor,
   grid: 60, // Size of the 7x5 grid, in pixels
   radius: 22, // Radius of each individual circle, in pixels
 
+  /**
+   * Save the user settings on change
+   */
+  saveSettings: function () {
+    settings.ledOnColor = Chronos.ledOnColor;
+    settings.ledOffColor = Chronos.ledOffColor;
+    settings.backgroundColor = Chronos.backgroundColor;
+
+    fs.writeFile('userdata.json', JSON.stringify(settings), (err) => {
+      if (err) {
+        return;
+      }
+
+      console.log('Saved settings file');
+    });
+  },
   /**
    * Our base draw function, this re-draws the entire canvas
    */
@@ -104,7 +123,7 @@ var Chronos = {
     ctx.beginPath();
 
     // Set our background
-    ctx.fillStyle = '#222';
+    ctx.fillStyle = Chronos.backgroundColor;
     ctx.rect(0, 0, width, height);
     ctx.fill();
 

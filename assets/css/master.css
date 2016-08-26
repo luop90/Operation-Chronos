@@ -27,3 +27,9 @@ aside > div.popupMenu {
   /*border: solid;*/
   background-color: #333;
 }
+
+input[type="text"] {
+  display: inline;
+  max-width: 100px;
+  outline-color: #039be5;
+}
