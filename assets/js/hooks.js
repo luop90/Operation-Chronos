@@ -16,7 +16,6 @@ function menuHooks() {
 }
 
 window.addEventListener('load', function () {
-  console.log('Window loaded');
   menuHooks();
   Chronos.draw();
 
@@ -29,4 +28,14 @@ window.addEventListener('load', function () {
       Chronos.draw();
     }, 1000);
   }, 1000 - moment().millisecond()); // Correction for time offset
+});
+
+window.addEventListener('resize', function () {
+  var diameter = Math.min(window.innerWidth, window.innerHeight);
+  var canvas = document.querySelector('canvas');
+
+  canvas.setAttribute('width', diameter);
+  canvas.setAttribute('height', diameter);
+
+  Chronos.draw();
 });
