@@ -3,7 +3,7 @@ const fs = require('fs');
 
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
-var settings = JSON.parse(fs.readFileSync('./userdata.json'));
+var settings = JSON.parse(fs.readFileSync(__dirname + '/../userdata.json'));
 
 Math.TAU = 2 * Math.PI;
 
